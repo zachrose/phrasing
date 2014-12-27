@@ -130,6 +130,7 @@ class PhrasingPhrasesController < Phrasing.parent_controller.constantize
 
     def authorize_editor
       redirect_to root_path unless can_edit_phrases?
+      http_basic_authenticate_with name: ENV["ADMIN_USERNAME"], password: ENV["ADMIN_PASSWORD"]
     end
 
 end
